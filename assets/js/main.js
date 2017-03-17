@@ -70,161 +70,175 @@ var LaptopForm = function(options) {
 	public.name = "Laptop";
 
 	return public;
-};
+}
 
 
 
 
 
-// var PhoneForm = Object.create(DefaultForm);
-// PhoneForm.fields.price = {
-// 	label: "Price",
-// 	type: "radio",
-// 	options: [
-// 		"under $10",
-// 		"$10-$25",
-// 		"$25-$50",
-// 		"$50-$100",
-// 		"$100 and Above",
-// 	]
-// };
-// PhoneForm.fields.input = {
-// 	label: "Input Options:",
-// 	type: "radio",
-// 	options: [
-// 		"Physical Keyboard",
-// 		"TouchScreen",
-// 	]
-// };
-// PhoneForm.fields.system = {
-// 	label: "Operating System:",
-// 	type: "select",
-// 	options: [
-// 		"Andriod",
-// 		"IOS",
-// 		"Windows",
-// 		"Other",
-// 	]
-// };
-// PhoneForm.fields.design = {
-// 	label: "Phone Design:",
-// 	type: "select",
-// 	options: [
-// 		"Candybar",
-// 		"Flip Phone",
-// 		"Swivel Phone",
-// 	]
-// };
-// PhoneForm.name = "Phone";
-// console.log(PhoneForm);
+ var PhoneForm = function(options) {
+     var public = DefaultForm(options);
+     public.fields.price = {
+        label: "Price",
+        type: "radio",
+        options: [
+            "under $10",
+            "$10-$25",
+            "$25-$50",
+            "$50-$100",
+            "$100 and Above",
+        ]
+     };
+     public.fields.input = {
+        label: "Input Options:",
+        type: "radio",
+        options: [
+            "Physical Keyboard",
+            "TouchScreen",
+        ]
+     };
+     public.fields.system = {
+        label: "Operating System:",
+        type: "select",
+        options: [
+            "Andriod",
+            "IOS",
+            "Windows",
+            "Other",
+        ]
+     };
+     public.fields.design = {
+        label: "Phone Design:",
+        type: "select",
+        options: [
+            "Candybar",
+            "Flip Phone",
+            "Swivel Phone",
+        ]
+     };
+ 
+     public.name = "Phone";
+     return public;
+ }
 
 
-
-// var TabletForm = Object.create(DefaultForm);
-// TabletForm.fields.price = {
-// 	label: "Price",
-// 	type: "radio",
-// 	options: [
-// 		"under $25",
-// 		"$25-$50",
-// 		"$50-$100",
-// 		"$100-$200",
-// 		"$200 and Above",
-// 	]
-// };
-// TabletForm.fields.features = {
-// 	label: "Features:",
-// 	type: "checkbox",
-// 	options: [
-// 		"Bluetooth",
-// 		"Expandable storage",
-// 		"front camera", 
-// 		"full USB",
-// 		"GPS",
-// 		"micro HDMI",
-// 	]
-// };
-// TabletForm.fields.size = {
-// 	label: "Screen Size:",
-// 	type: "radio",
-// 	options: [
-// 		"Small(7-7.9 inches)",
-// 		"Medium(8-8.9 inches)",
-// 		"Large(9-18.8 inches)"
-// 	]
-// };
-
-
-
-// var TVForm = Object.create(DefaultForm);
-// TVForm.fields.price = {
-// 	label: "Price",
-// 	type: "radio",
-// 	options: [
-// 		"under $500",
-// 		"$500-$1000",
-// 		"$1000-$2000",
-// 		"$2000-$3000",
-// 		"$3000 and Above",
-// 	]
-// };
-// TVForm.fields.display = {
-// 	label: "Display Format:",
-// 	type: "radio",
-// 	options: [
-// 		"4K",
-// 		"1080p",
-// 		"720p", 
-// 	]
-// };
-// TVForm.fields.type = {
-// 	label: "TV Type:",
-// 	type: "checkbox",
-// 	options: [
-// 		"3D",
-// 		"4K",
-// 		"LCD", 
-// 		"LED",
-// 		"OLED",
-// 		"HDR",
-// 		"Curved TV",
-// 	]
-// };
+ var TabletForm = function(options) {
+     var public = DefaultForm(options);
+     public.fields.price = {
+        label: "Price",
+        type: "radio",
+        options: [
+            "under $25",
+            "$25-$50",
+            "$50-$100",
+            "$100-$200",
+            "$200 and Above",
+        ]
+     };
+     public.fields.features = {
+        label: "Features:",
+        type: "checkbox",
+        options: [
+            "Bluetooth",
+            "Expandable storage",
+            "front camera", 
+            "full USB",
+            "GPS",
+            "micro HDMI",
+        ]
+     };
+     public.fields.size = {
+        label: "Screen Size:",
+        type: "radio",
+        options: [
+            "Small(7-7.9 inches)",
+            "Medium(8-8.9 inches)",
+            "Large(9-18.8 inches)"
+        ]
+     };
+     
+     public.name = "Tablet";
+     return public;
+ }
 
 
+ var TVForm = function(options) {
+     var public = DefaultForm(options);
+     public.fields.price = {
+        label: "Price",
+        type: "radio",
+        options: [
+            "under $500",
+            "$500-$1000",
+            "$1000-$2000",
+            "$2000-$3000",
+            "$3000 and Above",
+        ]
+     };
+     public.fields.display = {
+        label: "Display Format:",
+        type: "radio",
+        options: [
+            "4K",
+            "1080p",
+            "720p", 
+        ]
+     };
+     public.fields.type = {
+        label: "TV Type:",
+        type: "checkbox",
+        options: [
+            "3D",
+            "4K",
+            "LCD", 
+            "LED",
+            "OLED",
+            "HDR",
+            "Curved TV",
+        ]
+     };
+     
+     public.name = "TV";
+     return public;
+ }
 
-// var GamingForm = Object.create(DefaultForm);
-// GamingForm.fields.network = {
-// 	label: "Online Network",
-// 	type: "radio",
-// 	options: [
-// 		"Playstation Network",
-// 		"Google play",
-// 		"Xbox Live",
-// 		"Steam",
-// 	]
-// },
-// GamingForm.fields.company = {
-// 	label: "Company:",
-// 	type: "select",
-// 	options: [
-// 		"Nintendo",
-// 		"Sony Corpotation",
-// 		"Microsoft Corporation",
-// 		"Nvidia Corporation",
-// 		"Atari",
-// 		"Other",
-// 	]
-// },
-// GamingForm.fields.portable = {
-// 	label: "Portable:",
-// 	type: "radio",
-// 	options: [
-// 		"Yes",
-// 		"No",
-// 	]
-// }
 
+ var GamingForm = function(options) {
+     var public = DefaultForm(options);
+     public.fields.network = {
+        label: "Online Network",
+        type: "radio",
+        options: [
+            "Playstation Network",
+            "Google play",
+            "Xbox Live",
+            "Steam",
+        ]
+     };
+     public.fields.company = {
+        label: "Company:",
+        type: "select",
+        options: [
+            "Nintendo",
+            "Sony Corpotation",
+            "Microsoft Corporation",
+            "Nvidia Corporation",
+            "Atari",
+            "Other",
+        ]
+     };
+     public.fields.portable = {
+        label: "Portable:",
+        type: "radio",
+        options: [
+            "Yes",
+            "No",
+        ]
+     };
+
+     public.name = "Gaming System";
+     return public;
+ }
 
 var typeSelector = document.querySelector("#type-selector");
 typeSelector.addEventListener("change", function(e) {
