@@ -246,16 +246,19 @@ typeSelector.addEventListener("change", function(e) {
 	form.innerHTML = "";
 	if (this.value == "Laptop") {
 		var newLaptop = LaptopForm();
-		
 		formMaker(newLaptop);
 	} else if (this.value == "Tablet") {
-		formMaker(TabletForm);
+        var newTablet = TabletForm();
+		formMaker(newTablet);
 	} else if (this.value == "TV") {
-		formMaker(TVForm);
+        var newTV = TVForm();
+		formMaker(newTV);
 	} else if (this.value == "Phone") {
-		formMaker(PhoneForm);
+        var newPhone = PhoneForm();
+		formMaker(newPhone);
 	} else if (this.value == "Gaming System") {
-		formMaker(GamingForm);
+        var newGame = GamingForm();
+		formMaker(newGame);
 	} 
 });
 
@@ -263,9 +266,8 @@ typeSelector.addEventListener("change", function(e) {
 function formMaker (formInfo){
 	var form = document.querySelector("#dynamic-fields");
 	var formFields = formInfo.fields;
-	console.log(formInfo);
 	for(var key in formFields) {
-		console.log(key + ":", formFields[key]);
+//		console.log(key + ":", formFields[key]);
 		var type = formFields[key].type;
 		var input; 
 		var label = document.createElement("label");
@@ -314,6 +316,33 @@ function formMaker (formInfo){
 		}
 
 	}
+}
+
+//To grab form data upon submission, do something along the lines of the following.
+var form = document.getElementById("form");
+form.addEventListener("submit", function(e){
+	e.preventDefault();
+	// console.log("submit");
+	var myFormInfo = new FormData(form);
+	var inputInfo = {};
+	for(var inputInfoPair of myFormInfo.entries()){
+		console.log(inputInfoPair);
+		inputInfo[inputInfoPair[0]] = inputInfoPair[1];
+	}
+	console.log(inputInfo);
+	var JSONData = JSON.stringify(inputInfo);
+	localStorage.setItem(inputInfo.genre, JSONData);
+	console.log(localStorage);
+	getData();
+});
+
+function getData(){
+	for( var item in localStorage ) {
+    var header = document.createElement("h2");
+    header.innerHTML = localStorage[item].name;
+//    DisplayDivNameHere.appendChild(header);
+    // Repeat for other items in object to show them as reviews on the page
+    };
 }
 
 
