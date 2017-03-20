@@ -244,23 +244,47 @@ var typeSelector = document.querySelector("#type-selector");
 typeSelector.addEventListener("change", function(e) {
 	var form = document.querySelector("#dynamic-fields");
 	form.innerHTML = "";
+
+    var button = document.createElement("button");
+    button.setAttribute("type", "submit");
+    button.innerHTML = "submit"
+
+    // var myModal = document.createElement('div');
+    // myModal.setAttribute("class", "modal");
+    // myModal.setAttribute("id", "myModal");
+    // document.body.append(myModal);
+
+    // var modalContent = document.createElement('div');
+    // modalContent.setAttribute("class", "modalContent");
+    // myModal.appendChild(modalContent);
+
+    // button.addEventListener("click", function() {
+    //     myModal.setAttribute("display", "block");
+    // });
+
 	if (this.value == "Laptop") {
 		var newLaptop = LaptopForm();
 		formMaker(newLaptop);
+        form.appendChild(button);
 	} else if (this.value == "Tablet") {
         var newTablet = TabletForm();
 		formMaker(newTablet);
+        form.appendChild(button);
 	} else if (this.value == "TV") {
         var newTV = TVForm();
 		formMaker(newTV);
+        form.appendChild(button);
 	} else if (this.value == "Phone") {
         var newPhone = PhoneForm();
 		formMaker(newPhone);
+        form.appendChild(button);
 	} else if (this.value == "Gaming System") {
         var newGame = GamingForm();
 		formMaker(newGame);
+        form.appendChild(button);
 	} 
 });
+
 
 
 function formMaker (formInfo){
@@ -331,7 +355,8 @@ form.addEventListener("submit", function(e){
 	}
 	console.log(inputInfo);
 	var JSONData = JSON.stringify(inputInfo);
-	localStorage.setItem(inputInfo.genre, JSONData);
+	localStorage.setItem(inputInfo.type, JSONData);
+    var newData = JSON.parse(localStorage.getItem('inputInfo'))
 	console.log(localStorage);
 	getData();
 });
@@ -339,9 +364,11 @@ form.addEventListener("submit", function(e){
 function getData(){
 	for( var item in localStorage ) {
     var header = document.createElement("h2");
-    header.innerHTML = localStorage[item].name;
-//    DisplayDivNameHere.appendChild(header);
-    // Repeat for other items in object to show them as reviews on the page
+    // header.innerHTML = localStorage[item].name;
+    header.innerHTML = ratings;
+    var reviewHeader = document.createElement("div");
+    reviewHeader.appendChild(header);
+    document.body.appendChild(reviewHeader);
     };
 }
 
