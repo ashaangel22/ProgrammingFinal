@@ -350,26 +350,30 @@ form.addEventListener("submit", function(e){
 	var myFormInfo = new FormData(form);
 	var inputInfo = {};
 	for(var inputInfoPair of myFormInfo.entries()){
-		console.log(inputInfoPair);
+		// console.log(inputInfoPair);
 		inputInfo[inputInfoPair[0]] = inputInfoPair[1];
 	}
-	console.log(inputInfo);
+	// console.log(inputInfo);
 	var JSONData = JSON.stringify(inputInfo);
 	localStorage.setItem(inputInfo.type, JSONData);
-    var newData = JSON.parse(localStorage.getItem('inputInfo'))
-	console.log(localStorage);
+	// console.log(localStorage);
+
+    function getData(){
+        for( var item in localStorage ) {
+            var newData = JSON.parse(localStorage.getItem('inputInfo.type'));
+            
+            var header = document.createElement("h2");
+            console.log(localStorage[item].type);
+            header.innerHTML = localStorage[item].type;
+            var reviewHeader = document.createElement("div");
+            reviewHeader.setAttribute("class", "reviewHeader")
+            reviewHeader.appendChild(header);
+            document.body.appendChild(reviewHeader);
+        };
+    }
+
 	getData();
 });
 
-function getData(){
-	for( var item in localStorage ) {
-    var header = document.createElement("h2");
-    // header.innerHTML = localStorage[item].name;
-    header.innerHTML = ratings;
-    var reviewHeader = document.createElement("div");
-    reviewHeader.appendChild(header);
-    document.body.appendChild(reviewHeader);
-    };
-}
 
 

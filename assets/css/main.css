@@ -18,6 +18,10 @@ TABLE OF CONTENTS:
 body {
   background: #ccc; }
 
+ h2 {
+ 	color: blue;
+ }
+
 
 
 /* 2. Content ================================= */
@@ -26,9 +30,9 @@ input[type=radio] {
 }
 
 .reviewHeader {
-	width: 100px;
-	height: 100px;
-	color: blue;
+	width: auto;
+	height: auto;
+	background: pink;
 }
 
 /* The Modal (background) */
