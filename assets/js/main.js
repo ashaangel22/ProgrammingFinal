@@ -2,12 +2,14 @@
 //Make a list of types of form fields (so you make your function
 //finish formMaker function: loops through the fields object inside formInfo and makes a form input and label for each one
 
-var DefaultForm = function(options) {
-	var public = options || {};
+// window.onload = getData();
 
-	public.name = "Electronics";
+var DefaultForm = function(options) {
+	var publicVars = options || {};
+
+	publicVars.name = "Electronics";
 	
-	public.fields = {
+	publicVars.fields = {
 		model: {
 			label: "Model Name",
 			type: "text"
@@ -37,14 +39,14 @@ var DefaultForm = function(options) {
 		},
 	};
 
-	return public;
+	return publicVars;
 }
 
 //child class example
 var LaptopForm = function(options) {
-	var public = DefaultForm(options);
+	var publicVars = DefaultForm(options);
 
-	public.fields.price = {
+	publicVars.fields.price = {
 		label: "Price:",
 		type: "radio",
 		options: [
@@ -56,7 +58,7 @@ var LaptopForm = function(options) {
 		]
 	};
 
-	public.fields.laptopType = {
+	publicVars.fields.laptopType = {
 		label: "Laptop Type:",
 		type: "select",
 		options: [
@@ -67,9 +69,9 @@ var LaptopForm = function(options) {
 		]
 	};
 
-	public.name = "Laptop";
+	publicVars.name = "Laptop";
 
-	return public;
+	return publicVars;
 }
 
 
@@ -77,8 +79,8 @@ var LaptopForm = function(options) {
 
 
  var PhoneForm = function(options) {
-     var public = DefaultForm(options);
-     public.fields.price = {
+     var publicVars = DefaultForm(options);
+     publicVars.fields.price = {
         label: "Price",
         type: "radio",
         options: [
@@ -89,7 +91,7 @@ var LaptopForm = function(options) {
             "$100 and Above",
         ]
      };
-     public.fields.input = {
+     publicVars.fields.input = {
         label: "Input Options:",
         type: "radio",
         options: [
@@ -97,7 +99,7 @@ var LaptopForm = function(options) {
             "TouchScreen",
         ]
      };
-     public.fields.system = {
+     publicVars.fields.system = {
         label: "Operating System:",
         type: "select",
         options: [
@@ -107,7 +109,7 @@ var LaptopForm = function(options) {
             "Other",
         ]
      };
-     public.fields.design = {
+     publicVars.fields.design = {
         label: "Phone Design:",
         type: "select",
         options: [
@@ -117,14 +119,14 @@ var LaptopForm = function(options) {
         ]
      };
  
-     public.name = "Phone";
-     return public;
+     publicVars.name = "Phone";
+     return publicVars;
  }
 
 
  var TabletForm = function(options) {
-     var public = DefaultForm(options);
-     public.fields.price = {
+     var publicVars = DefaultForm(options);
+     publicVars.fields.price = {
         label: "Price",
         type: "radio",
         options: [
@@ -135,7 +137,7 @@ var LaptopForm = function(options) {
             "$200 and Above",
         ]
      };
-     public.fields.features = {
+     publicVars.fields.features = {
         label: "Features:",
         type: "checkbox",
         options: [
@@ -147,7 +149,7 @@ var LaptopForm = function(options) {
             "micro HDMI",
         ]
      };
-     public.fields.size = {
+     publicVars.fields.size = {
         label: "Screen Size:",
         type: "radio",
         options: [
@@ -157,14 +159,14 @@ var LaptopForm = function(options) {
         ]
      };
      
-     public.name = "Tablet";
-     return public;
+     publicVars.name = "Tablet";
+     return publicVars;
  }
 
 
  var TVForm = function(options) {
-     var public = DefaultForm(options);
-     public.fields.price = {
+     var publicVars = DefaultForm(options);
+     publicVars.fields.price = {
         label: "Price",
         type: "radio",
         options: [
@@ -175,7 +177,7 @@ var LaptopForm = function(options) {
             "$3000 and Above",
         ]
      };
-     public.fields.display = {
+     publicVars.fields.display = {
         label: "Display Format:",
         type: "radio",
         options: [
@@ -184,7 +186,7 @@ var LaptopForm = function(options) {
             "720p", 
         ]
      };
-     public.fields.type = {
+     publicVars.fields.type = {
         label: "TV Type:",
         type: "checkbox",
         options: [
@@ -198,14 +200,14 @@ var LaptopForm = function(options) {
         ]
      };
      
-     public.name = "TV";
-     return public;
+     publicVars.name = "TV";
+     return publicVars;
  }
 
 
  var GamingForm = function(options) {
-     var public = DefaultForm(options);
-     public.fields.network = {
+     var publicVars = DefaultForm(options);
+     publicVars.fields.network = {
         label: "Online Network",
         type: "radio",
         options: [
@@ -215,7 +217,7 @@ var LaptopForm = function(options) {
             "Steam",
         ]
      };
-     public.fields.company = {
+     publicVars.fields.company = {
         label: "Company:",
         type: "select",
         options: [
@@ -227,7 +229,7 @@ var LaptopForm = function(options) {
             "Other",
         ]
      };
-     public.fields.portable = {
+     publicVars.fields.portable = {
         label: "Portable:",
         type: "radio",
         options: [
@@ -236,8 +238,8 @@ var LaptopForm = function(options) {
         ]
      };
 
-     public.name = "Gaming System";
-     return public;
+     publicVars.name = "Gaming System";
+     return publicVars;
  }
 
 var typeSelector = document.querySelector("#type-selector");
@@ -360,13 +362,20 @@ form.addEventListener("submit", function(e){
 
     function getData(){
         for( var item in localStorage ) {
-            var newData = JSON.parse(localStorage.getItem('inputInfo.type'));
-            
+            var newData = JSON.parse(localStorage.getItem(inputInfo.type));
+            console.log(newData);
             var header = document.createElement("h2");
-            console.log(localStorage[item].type);
-            header.innerHTML = localStorage[item].type;
+            document.body.appendChild(header);
+            header.innerHTML = newData.type;
+            // header.innerHTML = newData.model;
+            // header.innerHTML = newData.manufacturer;
+            // header.innerHTML = newData.ratings;
+            // header.innerHTML = newData.recommend;
+
+
             var reviewHeader = document.createElement("div");
             reviewHeader.setAttribute("class", "reviewHeader")
+            reviewHeader.appendChild(header);
             reviewHeader.appendChild(header);
             document.body.appendChild(reviewHeader);
         };
